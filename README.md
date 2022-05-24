@@ -1,3 +1,17 @@
-# EPL_Winning_Team_Predictions
+### EPL Winning Team Prediction
 
-using supervised machine learning algorithms to predict the winning teams.
+## Run Flask App
+
+export FLASK_APP=app.py
+
+<br>
+
+flask run
+
+## For Development
+
+export FLASK_ENV=app.py
+
+<br>
+
+flask run
