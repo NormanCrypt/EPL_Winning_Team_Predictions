@@ -6,12 +6,12 @@ export FLASK_APP=app.py
 
 <br>
 
-flask run
+    flask run
 
 ## For Development
 
-export FLASK_ENV=app.py
+    export FLASK_ENV=app.py
 
 <br>
 
-flask run
+    flask run
