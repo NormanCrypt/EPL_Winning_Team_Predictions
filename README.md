@@ -2,7 +2,7 @@
 
 ## Run Flask App
 
-export FLASK_APP=app.py
+    export FLASK_APP=app.py
 
 <br>
 
@@ -10,7 +10,7 @@ export FLASK_APP=app.py
 
 ## For Development
 
-    export FLASK_ENV=app.py
+    export FLASK_DEBUG=True
 
 <br>
 
