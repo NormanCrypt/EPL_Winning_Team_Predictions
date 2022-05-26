@@ -8,7 +8,7 @@
 
 ## Packages
 
-- `scikit-learn`: A [Python](#) Machine Learning package.
+- `scikit-learn`: A [Python](#Python) Machine Learning package.
 
 ## Home Application
 
@@ -40,4 +40,4 @@ the app developped with javascript using fetch api to connect diffrent end point
 
 > Feel free to download and use the code and develope more functionalites of this app
 
-[author](#Lakhder Amine)
+[Author](#Lakhder Amine).
