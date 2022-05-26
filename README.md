@@ -42,4 +42,4 @@ the app developped with javascript using fetch api to connect diffrent end point
 
 <br>
 
-- `@Authon` : [Author](#Author).
+- `@Authon` : [Lakhder Amine](#Author).
