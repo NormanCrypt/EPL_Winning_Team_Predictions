@@ -4,6 +4,8 @@
 
 > Note : cd to the root folder 'flaskr' and run the app by typing : flask run
 
+> Note : You need first to install all the necessary packs to run the app
+
 ## Home Application
 
 The application home page
