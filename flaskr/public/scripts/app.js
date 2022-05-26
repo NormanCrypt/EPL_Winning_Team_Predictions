@@ -70,7 +70,6 @@ function EPLWinningTeamPredictionsApp(){
             svm_plot = data[1][0].data || SafeArray;
             rf_plot = data[2][0].data || SafeArray;
             dt_plot = data[3][0].data || SafeArray;
-            // score_curve = data[4].data || SafeArray;
 
             knn_score = data[0][4];
             svm_score = data[1][4];
@@ -245,9 +244,6 @@ function EPLWinningTeamPredictionsApp(){
 
                 fixture.classList.remove("hide");
 
-                // let homeTeam = fixture.querySelector(".pred-home");
-                // let awayTeam = fixture.querySelector(".pred-away");
-
                 let homeTeamIcon = fixture.querySelector(".home-icon");
                 let awayTeamIcon = fixture.querySelector(".away-icon");
 
@@ -257,9 +253,6 @@ function EPLWinningTeamPredictionsApp(){
                 let svmPredictedProbabilities = fixture.querySelector(".pred-fixture-body .svm-result").children;
                 let rfPredictedProbabilities = fixture.querySelector(".pred-fixture-body .rf-result").children;
                 let dtPredictedProbabilities = fixture.querySelector(".pred-fixture-body .dt-result").children;
-
-                // homeTeam.innerHTML = homeTeams[i];
-                // awayTeam.innerHTML = awayTeams[i];
 
                 homeTeamIcon.src = "../../public/assets/teams logos/"+homeTeams[i]+".png";
                 awayTeamIcon.src = "../../public/assets/teams logos/"+awayTeams[i]+".png";
