@@ -6,6 +6,10 @@
 
 > Note : You need first to install all the necessary packs to run the app
 
+## Packages
+
+- `scikit-learn`: A [Python](#) Machine Learning package.
+
 ## Home Application
 
 The application home page
