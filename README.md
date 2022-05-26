@@ -2,18 +2,13 @@
 
 ## Run Flask App
 
-    export FLASK_APP=app.py
+> Note : cd to the root folder 'flaskr' and run the app by typing : flask run
 
 <br>
-
-    flask run
-
-## For Development
-
-    export FLASK_DEBUG=True
-
-<br>
-
-    flask run
+    
+<p align="center">
+  <img src="[https://raw.githubusercontent.com/spacedriveapp/.github/main/profile/app.png](https://github.com/LakhderAmine99/EPL_Winning_Team_Predictions/blob/main/flaskr/screen%20shots/Screenshot%202022-05-25%20002117.png)" alt="Logo">
+  <br />
+</p>
     
 ## About The Application
