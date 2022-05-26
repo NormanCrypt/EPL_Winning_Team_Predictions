@@ -30,3 +30,10 @@ The prediction page
 </p>
     
 ## About The Application
+
+The EPL WTP Application used for predicting and evaluating the english premier league football games using supervised machine learning alogorithms , the app is developped using flask framwork and scikit-learn package for machine learning , pickle package for saving the trained models , this is for the backend , for the client
+the app developped with javascript using fetch api to connect diffrent end points with the client. 
+
+> Feel free to download and use the code and develope more functionalites of this app
+
+@author Lakhder Amine
