@@ -7,7 +7,7 @@
 <br>
     
 <p align="center">
-  <img src="[https://raw.githubusercontent.com/spacedriveapp/.github/main/profile/app.png](https://github.com/LakhderAmine99/EPL_Winning_Team_Predictions/blob/main/flaskr/screen%20shots/Screenshot%202022-05-25%20002117.png)" alt="Logo">
+  <img src="https://github.com/LakhderAmine99/EPL_Winning_Team_Predictions/blob/main/flaskr/screen%20shots/Screenshot%202022-05-25%20002117.png" alt="Logo">
   <br />
 </p>
     
