@@ -9,6 +9,8 @@
 ## Packages
 
 - `scikit-learn`: A [Python](#Python) Machine Learning package.
+- `pickle`.
+- `plotly`.` 
 
 ## Home Application
 
