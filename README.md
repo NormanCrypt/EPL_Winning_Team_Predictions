@@ -10,7 +10,7 @@
 - `pickle`: A [Python](#Python) package for saving & serializing python objects.
 - `plotly`: A [Python](#Python) package for data visualization and ploting any type of charts.
 
-## Home Application
+## Application Preview
 
 The application home page
  
