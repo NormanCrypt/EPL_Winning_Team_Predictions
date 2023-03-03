@@ -1,13 +1,10 @@
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.naive_bayes import MultinomialNB
-# from xgboost import XGBClassifier
 from sklearn.metrics import accuracy_score
-# from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
 from sklearn.metrics import roc_curve,roc_auc_score
-# from sklearn.multiclass import OneVsRestClassifier
 from sklearn.preprocessing import label_binarize
 from itertools import cycle
 import numpy as np
@@ -18,91 +15,91 @@ import matplotlib.pyplot as plt
 import plotly.express as px
 
 class EPL_WinningTeamPrediction(object):
-    def __init__(self,train_data,test_data):
-        self.train_dataset = train_data
-        self.test_dataset = test_data
+    """ This class is used to predict the winning team of a match in the English Premier League.
+        It uses the following models:
+        1. Support Vector Machine
+        2. Random Forest
+        3. Descision Tree
+        4. K-Nearest Neighbors
+    
+        _args_
         
-        self.X_train = None
-        self.X_test = None
-        self.y_train = None
-        self.y_test = None
+        data_processor: DataProcessor object
+    """
+    
+    def __init__(self,data_processor):
+        self._data_processor = data_processor
+        
+    @property
+    def data_processor(self):
+        return self._data_processor
+    
+    @data_processor.setter
+    def data_processor(self,processor):
+        self._data_processor = processor
         
     def process_data(self):
+        self.data_processor.engineer()
         
-        useful_data = self.train_dataset.copy()
-        useful_test_data = self.test_dataset.copy()
+    def SVM_Model(self,kernel='poly',probability=True):
+        """Support Vector Machine Model for EPL Winning Team Prediction Model.
 
-        useful_data = useful_data.drop(["Div","Date"],axis=1)
-        useful_test_data = useful_test_data.drop(["Div","Date"],axis=1)
+        Args:
+            kernel (str, optional): _description_. Defaults to 'poly'.
+            probability (bool, optional): _description_. Defaults to True.
+        """
         
-        useful_data = useful_data.drop(["HTR","Referee"],1)
-        useful_data["Result"] = useful_data.apply(lambda row: self.transform_data(row),axis=1)
+        clf = SVC(kernel=kernel,probability=True)
 
-        useful_test_data = useful_test_data.drop(["HTR","Referee"],1)
-        useful_test_data["Result"] = useful_test_data.apply(lambda row: self.transform_data(row),axis=1)
-        
-        self.X_train = useful_data[['FTHG','FTAG','HTHG','HTAG','HS','AS','HST','HF','AF','HY','AY','HR','AR','HC','AC','AST']]
-        self.y_train = useful_data['Result']
+        y_pred = clf.fit(self.data_processor.X_train,self.data_processor.y_train).predict(self.data_processor.X_train)
+        score = accuracy_score(y_pred,self.data_processor.y_train)
 
-        self.X_test = useful_test_data[['FTHG','FTAG','HTHG','HTAG','HS','AS','HST','HF','AF','HY','AY','HR','AR','HC','AC','AST']]
-        self.y_test = useful_test_data['Result']
-        
-        return[self.X_train,self.X_test,self.y_train,self.y_test]
-    
-    def transform_data(self,record):
-        
-        if(record.FTR == 'H'):
-            return 1
-        elif(record.FTR == 'A'):
-            return -1
-        else:
-            return 0 
-        
-    def SVM_Model(self,kernel='linear',probability=True):
-        
-        clf = SVC(kernel='poly',probability=True)
-
-        y_pred = clf.fit(self.X_train,self.y_train).predict(self.X_train)
-        score = accuracy_score(y_pred,self.y_train)
-
-        svm_model = clf.fit(self.X_train,self.y_train)
+        svm_model = clf.fit(self.data_processor.X_train,self.data_processor.y_train)
         
         return[svm_model,score]
     
     def Random_Forest_Model(self):
+        """Random Forest Model for EPL Winning Team Prediction Model.
+        """
         
         clf = RandomForestClassifier(n_estimators=10, max_depth=5, random_state=0)
         
-        y_pred = clf.fit(self.X_train,self.y_train).predict(self.X_train)
-        score = accuracy_score(y_pred,self.y_train)
+        y_pred = clf.fit(self.data_processor.X_train,self.data_processor.y_train).predict(self.data_processor.X_train)
+        score = accuracy_score(y_pred,self.data_processor.y_train)
 
-        rf_model = clf.fit(self.X_train,self.y_train)
+        rf_model = clf.fit(self.data_processor.X_train,self.data_processor.y_train)
         
         return[rf_model,score]
     
     def Descision_Tree_Model(self):
+        """Descision Tree Model for EPL Winning Team Prediction Model.
+        """
         
         clf = DecisionTreeClassifier(max_depth=5)
         
-        y_pred = clf.fit(self.X_train,self.y_train).predict(self.X_train)
-        score = accuracy_score(y_pred,self.y_train)
+        y_pred = clf.fit(self.data_processor.X_train,self.data_processor.y_train).predict(self.data_processor.X_train)
+        score = accuracy_score(y_pred,self.data_processor.y_train)
 
-        dt_model = clf.fit(self.X_train,self.y_train)
+        dt_model = clf.fit(self.data_processor.X_train,self.data_processor.y_train)
         
         return[dt_model,score]
     
     def KNeighbors_Model(self):
+        """K-Nearest Neighbors Model for EPL Winning Team Prediction Model.
+        """
         
         clf = KNeighborsClassifier(n_neighbors = 10)
         
-        y_pred = clf.fit(self.X_train,self.y_train).predict(self.X_train)
-        score = accuracy_score(y_pred,self.y_train)
+        y_pred = clf.fit(self.data_processor.X_train,self.data_processor.y_train).predict(self.data_processor.X_train)
+        score = accuracy_score(y_pred,self.data_processor.y_train)
 
-        knn_model = clf.fit(self.X_train,self.y_train)
+        knn_model = clf.fit(self.data_processor.X_train,self.data_processor.y_train)
         
         return[knn_model,score]
     
     def trainModels(self):
+        """Trains all the models and returns the models and their scores.
+        """
         
         svm_model,svm_score = self.SVM_Model()
         rf_model,rf_score = self.Random_Forest_Model()
@@ -112,21 +109,44 @@ class EPL_WinningTeamPrediction(object):
         return[svm_model,svm_score,rf_model,rf_score,dt_model,dt_score,knn_model,knn_score]
     
     def predict(self,data,model):
+        """Predicts the winning team of a match.
+
+        Args:
+            data (_type_): _description_
+            model (_type_): _description_
+
+        Returns:
+            _type_: _description_
+        """
     
         prediction = model.predict(data)
         return prediction
     
     def predict_proba(self,data,model):
+        """Predicts the probability of the winning team of a match.
+
+        Args:
+            data (_type_): _description_
+            model (_type_): _description_
+
+        Returns:
+            _type_: _description_
+        """
         
         prediction_probabilities = model.predict_proba(data)
         return prediction_probabilities
     
     def evaluate(self,model_data):
+        """Evaluates the model.
+
+        Args:
+            model_data (_type_): _description_
+        """
         
         model = model_data[0]
         score = model_data[1]
         
-        y_test_binarized=label_binarize(self.y_test[:150],classes=np.unique(self.y_test))
+        y_test_binarized=label_binarize(self.data_processor.y_test[:150],classes=np.unique(self.data_processor.y_test))
         
         fig = go.Figure()
         fig.add_shape(
@@ -134,7 +154,7 @@ class EPL_WinningTeamPrediction(object):
             x0=0, x1=1, y0=0, y1=1
         )
         
-        pred_proba = self.predict_proba(self.X_test[:150],model)
+        pred_proba = self.predict_proba(self.data_processor.X_test[:150],model)
         
         for i in range(pred_proba.shape[1]):
             y_true = y_test_binarized[:, i]
@@ -155,6 +175,3 @@ class EPL_WinningTeamPrediction(object):
         )
                 
         return[fig,pred_proba,fpr,tpr,score]
-    
-    def evaluateModels(self):
-        return

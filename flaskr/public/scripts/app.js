@@ -1,6 +1,9 @@
+/**
+ * 
+ * The main app module.
+ * @module EPLWinningTeamPredictionsApp
+ */
 function EPLWinningTeamPredictionsApp(){
-
-    const contentContainer = document.querySelector('#content');
 
     const evaluateBtn = document.querySelector('#evaluate');
     const testBtn = document.querySelector('#test');
