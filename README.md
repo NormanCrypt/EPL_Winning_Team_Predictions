@@ -6,21 +6,23 @@ EPW WTP is a web application that predicts the winning team of the english premi
 
 Note : You need to install all the packages in the requirements.txt file to run the app.
 
-    - Flask 1.1.2
-    - numpy 1.19.5
-    - pandas 1.2.4
-    - scikit-learn 0.24.1
-    - matplotlib 3.4.1
+    Flask 1.1.2
+    numpy 1.19.5
+    pandas 1.2.4
+    scikit-learn 0.24.1
+    matplotlib 3.4.1
 
 ## Packages
 
-    - Flask 1.1.2
-    - numpy 1.19.5
-    - pandas 1.2.4
-    - scikit-learn 0.24.1
-    - matplotlib 3.4.1
+    Flask 1.1.2
+    numpy 1.19.5
+    pandas 1.2.4
+    scikit-learn 0.24.1
+    matplotlib 3.4.1
 
 ## Application Preview
+
+    -The application home page
 
 <p align="center">
   <img src="https://github.com/LakhderAmine99/EPL_Winning_Team_Predictions/blob/main/flaskr/screen%20shots/Screenshot%202022-05-25%20002117.png" alt="Logo">
